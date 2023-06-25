@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  HttpException,
   HttpStatus,
   Param,
   Post,
@@ -15,11 +16,15 @@ export class CustomersController {
   constructor(private readonly libraryService: CustomersService) {}
 
   @Post()
-  async createBook(@Res() response, @Body() book: CustomersEntity) {
-    const newBook = await this.libraryService.createBook(book);
+  async createInvoice(@Res() response, @Body() customer: CustomersEntity) {
+    try{
+    const newBook = await this.libraryService.createInvoice(customer);
     return response.status(HttpStatus.CREATED).json({
       newBook,
     });
+  }catch(error){
+    return new HttpException('error',HttpStatus.BAD_REQUEST);
+  }
   }
 
   @Get()

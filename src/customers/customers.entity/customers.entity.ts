@@ -3,31 +3,31 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class CustomersEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
   @Column()
-  invoiceNumber: string;
+  invoiceNumber?: string;
   @Column()
-  fullName: string;
+  fullName?: string;
   @Column()
-  email: string;
+  email?: string;
   @Column()
-  address: string;
+  address?: string;
   @Column()
-  postalCode: string;
+  postalCode?: string;
   @Column()
-  vehicle: string;
+  vehicle?: string;
   @Column()
-  make: string;
+  make?: string;
   @Column()
-  model: string;
+  model?: string;
   @Column()
-  year: string;
+  year?: string;
   @Column()
-  mileage: string;
+  mileage?: string;
   @Column()
-  price: string;
+  price?: string;
   @Column()
-  total: string;
+  total?: string;
   @Column()
-  dateOfService: Date;
+  dateOfService?: Date;
 }

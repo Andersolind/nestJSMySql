@@ -18,7 +18,7 @@ export class CustomersService {
   //     return this.bookRepository.findOne(id);
   //   }
 
-  createBook(book: CustomersEntity): Promise<CustomersEntity> {
+  createInvoice(book: CustomersEntity): Promise<CustomersEntity> {
     return this.bookRepository.save(book);
   }
 }
