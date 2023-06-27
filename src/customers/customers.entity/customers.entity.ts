@@ -4,30 +4,30 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class CustomersEntity {
   @PrimaryGeneratedColumn()
   id?: number;
-  @Column()
-  invoiceNumber?: string;
-  @Column()
+  @Column({nullable: true})
+  invoiceNumber?: string = null;
+  @Column({nullable: true})
   fullName?: string;
-  @Column()
+   @Column({nullable: true})
   email?: string;
-  @Column()
+   @Column({nullable: true})
   address?: string;
-  @Column()
+   @Column({nullable: true})
   postalCode?: string;
-  @Column()
+   @Column({nullable: true})
   vehicle?: string;
-  @Column()
+   @Column({nullable: true})
   make?: string;
-  @Column()
+   @Column({nullable: true})
   model?: string;
-  @Column()
+   @Column({nullable: true})
   year?: string;
-  @Column()
+   @Column({nullable: true})
   mileage?: string;
-  @Column()
+   @Column({nullable: true})
   price?: string;
-  @Column()
+   @Column({nullable: true})
   total?: string;
-  @Column()
+   @Column({nullable: true})
   dateOfService?: Date;
 }
