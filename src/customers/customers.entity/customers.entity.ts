@@ -5,7 +5,7 @@ export class CustomersEntity {
   @PrimaryGeneratedColumn()
   id?: number;
   @Column({nullable: true})
-  invoiceNumber?: string = null;
+  invoiceNumber!: string;
   @Column({nullable: true})
   fullName?: string;
    @Column({nullable: true})

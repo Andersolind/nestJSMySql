@@ -18,6 +18,7 @@ export class CustomersController {
   @Post()
   async createInvoice(@Res() response, @Body() customer: CustomersEntity) {
     try{
+     
     const newBook = await this.libraryService.createInvoice(customer);
     return response.status(HttpStatus.CREATED).json({
       newBook,
