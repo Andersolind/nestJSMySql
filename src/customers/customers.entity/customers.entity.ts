@@ -1,15 +1,17 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('CustomersEntity')
 export class CustomersEntity {
   @PrimaryGeneratedColumn()
   id?: number;
   @Column({nullable: true})
-  invoiceNumber!: string;
+  invoiceNumber: string = ''
   @Column({nullable: true})
-  fullName?: string;
+  description!: string;
+  @Column({nullable: true})
+  fullName!: string;
    @Column({nullable: true})
-  email?: string;
+  email!: string;
    @Column({nullable: true})
   address?: string;
    @Column({nullable: true})

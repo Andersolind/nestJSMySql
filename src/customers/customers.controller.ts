@@ -10,16 +10,19 @@ import {
 } from '@nestjs/common';
 import { CustomersEntity } from './customers.entity/customers.entity';
 import { CustomersService } from './customers.service';
+import { CustomerDTO } from './customers.dto';
 
 @Controller('customers')
 export class CustomersController {
-  constructor(private readonly libraryService: CustomersService) {}
+  constructor(private readonly customerService: CustomersService) {}
 
   @Post()
-  async createInvoice(@Res() response, @Body() customer: CustomersEntity) {
+  async createInvoice(@Res() response, @Body() customer: CustomerDTO) {
     try{
-     
-    const newBook = await this.libraryService.createInvoice(customer);
+   
+
+    let newBook:CustomerDTO = await this.customerService.createInvoice(customer);
+   
     return response.status(HttpStatus.CREATED).json({
       newBook,
     });
@@ -30,7 +33,7 @@ export class CustomersController {
 
   @Get()
   async fetchAll(@Res() response) {
-    const books = await this.libraryService.findAll();
+    const books = await this.customerService.findAll();
     return response.status(HttpStatus.OK).json({
       books,
     });
