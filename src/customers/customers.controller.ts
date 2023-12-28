@@ -13,31 +13,36 @@ import { CustomersService } from './customers.service';
 
 @Controller('customers')
 export class CustomersController {
-  constructor(private readonly libraryService: CustomersService) {}
+  constructor(private readonly customerService: CustomersService) { }
 
   @Post()
   async createInvoice(@Res() response, @Body() customer: CustomersEntity) {
-    try{
-    const newBook = await this.libraryService.createInvoice(customer);
-    return response.status(HttpStatus.CREATED).json({
-      newBook,
-    });
-  }catch(error){
-    return new HttpException('error',HttpStatus.BAD_REQUEST);
-  }
+    try {
+      const newBook = await this.customerService.createInvoice(customer);
+      return response.status(HttpStatus.CREATED).json({
+        newBook,
+      });
+    } catch (error) {
+      return new HttpException('error', HttpStatus.BAD_REQUEST);
+    }
   }
 
   @Get()
   async fetchAll(@Res() response) {
-    const books = await this.libraryService.findAll();
-    return response.status(HttpStatus.OK).json({
-      books,
-    });
+    try {
+      const customerList = await this.customerService.findAll();
+      return response.status(HttpStatus.OK).json({
+        customerList,
+      });
+    }
+    catch (error) {
+      return error;
+    }
   }
 
   //   @Get('/:id')
   //   async findById(@Res() response, @Param('id') id) {
-  //     const book = await this.libraryService.findOne(id);
+  //     const book = await this.customerService.findOne(id);
   //     return response.status(HttpStatus.OK).json({
   //       book,
   //     });

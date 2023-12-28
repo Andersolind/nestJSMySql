@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { CustomersModule } from './customers/customers.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CustomersEntity } from './customers/customers.entity/customers.entity';
-import { CustomersController } from './customers/customers.controller';
 
 @Module({
   imports: [
@@ -13,11 +12,11 @@ import { CustomersController } from './customers/customers.controller';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'mimico',
-      database: 'jsMysql',
+      password: 'lol123456',
+      database: 'customers',
       entities: [CustomersEntity],
-      synchronize: true,
-      dropSchema: true,
+      synchronize: false,
+      dropSchema: false,
     }),
     CustomersModule,
   ],

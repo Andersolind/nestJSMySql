@@ -7,18 +7,14 @@ import { Repository } from 'typeorm';
 export class CustomersService {
   constructor(
     @InjectRepository(CustomersEntity)
-    private bookRepository: Repository<CustomersEntity>,
+    private customerRespository: Repository<CustomersEntity>,
   ) {}
 
   findAll(): Promise<CustomersEntity[]> {
-    return this.bookRepository.find();
+    return this.customerRespository.find();
   }
 
-  //   findOne(id: string): Promise<CustomersEntity> {
-  //     return this.bookRepository.findOne(id);
-  //   }
-
   createInvoice(book: CustomersEntity): Promise<CustomersEntity> {
-    return this.bookRepository.save(book);
+    return this.customerRespository.save(book);
   }
 }
